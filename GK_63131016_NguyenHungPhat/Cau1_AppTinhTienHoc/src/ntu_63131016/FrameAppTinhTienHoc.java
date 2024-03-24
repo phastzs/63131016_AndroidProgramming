@@ -17,6 +17,8 @@ import java.awt.Dimension;
 public class FrameAppTinhTienHoc extends JFrame {
     int newY = 120; // theo doi vi tri dong moi
     private int soThuTuHocPhan = 2; // biến đếm số thứ tự học phần đã được thêm
+    private int soluonghptoida = 10;
+
 
 
 
@@ -48,38 +50,38 @@ public class FrameAppTinhTienHoc extends JFrame {
 		//lang nghe xu ly su kien khi nhan nut them
 		 addHocPhan.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
-	                // tao cac thanh phan dong moi
-	                JLabel labelHocPhan = new JLabel("Học Phần " + soThuTuHocPhan);
-	                labelHocPhan.setFont(new Font("Arial", Font.BOLD, 16));
-	                labelHocPhan.setBounds(10, newY, 109, 34);
-	                contentPane.add(labelHocPhan);
+	                if (soThuTuHocPhan <= soluonghptoida) {
+	                    JLabel labelHocPhan = new JLabel("Học Phần " + soThuTuHocPhan);
+	                    labelHocPhan.setFont(new Font("Arial", Font.BOLD, 16));
+	                    labelHocPhan.setBounds(10, newY, 109, 34);
+	                    contentPane.add(labelHocPhan);
 
-	                JLabel labelSoTC = new JLabel("SoTC");
-	                labelSoTC.setFont(new Font("Arial", Font.BOLD, 16));
-	                labelSoTC.setBounds(129, newY, 57, 34);
-	                contentPane.add(labelSoTC);
+	                    JLabel labelSoTC = new JLabel("SoTC");
+	                    labelSoTC.setFont(new Font("Arial", Font.BOLD, 16));
+	                    labelSoTC.setBounds(129, newY, 57, 34);
+	                    contentPane.add(labelSoTC);
 
-	                JTextField textFieldSoTC = new JTextField();
-	                textFieldSoTC.setFont(new Font("Arial", Font.PLAIN, 16));
-	                textFieldSoTC.setColumns(10);
-	                textFieldSoTC.setBounds(179, newY, 63, 34);
-	                contentPane.add(textFieldSoTC);
+	                    JTextField textFieldSoTC = new JTextField();
+	                    textFieldSoTC.setFont(new Font("Arial", Font.PLAIN, 16));
+	                    textFieldSoTC.setColumns(10);
+	                    textFieldSoTC.setBounds(179, newY, 63, 34);
+	                    contentPane.add(textFieldSoTC);
 
-	                JCheckBox checkBatBuoc = new JCheckBox("Bắt Buộc");
-	                checkBatBuoc.setFont(new Font("Tahoma", Font.PLAIN, 14));
-	                checkBatBuoc.setBounds(248, newY, 132, 46);
-	                contentPane.add(checkBatBuoc);
+	                    JCheckBox checkBatBuoc = new JCheckBox("Bắt Buộc");
+	                    checkBatBuoc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	                    checkBatBuoc.setBounds(248, newY, 132, 46);
+	                    contentPane.add(checkBatBuoc);
 
-	                // vong lap va vi tri cho cac phan tu tiep theo
-	                newY += 50;
-	                soThuTuHocPhan++;
+	                    newY += 50;
+	                    soThuTuHocPhan++;
 
-	                // cap nhat kich thuoc cua content pane
-	                contentPane.setPreferredSize(new Dimension(contentPane.getWidth(), newY + 200));
-
-	                // yeu cau content pane ve lai cac thanh phan
-	                contentPane.revalidate();
-	                contentPane.repaint();
+	                    contentPane.setPreferredSize(new Dimension(contentPane.getWidth(), newY + 200));
+	                    contentPane.revalidate();
+	                    contentPane.repaint();
+	                } else {
+	                    // Đã đạt đến số lượng học phần tối đa
+	                    System.out.println("Đã đạt đến số lượng học phần tối đa.");
+	                }
 	            }
 	        });
 
