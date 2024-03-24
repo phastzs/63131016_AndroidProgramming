@@ -17,10 +17,10 @@ public class FrameAppTinhTienHoc extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtName;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textfieldTenHocPhan;
+	private JTextField textfieldSoTC;
+	private JTextField textfieldTongHocPhi;
+	private JTextField textfieldTongSoTC;
 	public FrameAppTinhTienHoc() {
 		setTitle("Tính Tiền Học Phí");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,72 +31,71 @@ public class FrameAppTinhTienHoc extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel Name = new JLabel("Tên Học Phần");
-		Name.setFont(new Font("Arial", Font.BOLD, 16));
-		Name.setBounds(10, 80, 109, 34);
-		contentPane.add(Name);
+		JLabel labelTenHocPhan = new JLabel("Tên Học Phần");
+		labelTenHocPhan.setFont(new Font("Arial", Font.BOLD, 16));
+		labelTenHocPhan.setBounds(10, 80, 109, 34);
+		contentPane.add(labelTenHocPhan);
 		
-		JButton add = new JButton("Thêm");
-		add.setFont(new Font("Arial", Font.PLAIN, 16));
-		add.setBounds(10, 10, 109, 46);
-		contentPane.add(add);
+		JButton addHocPhan = new JButton("Thêm");
+		addHocPhan.setFont(new Font("Arial", Font.PLAIN, 16));
+		addHocPhan.setBounds(10, 10, 109, 46);
+		contentPane.add(addHocPhan);
 		
-		txtName = new JTextField();
-		txtName.setFont(new Font("Arial", Font.PLAIN, 16));
-		txtName.setBounds(129, 81, 277, 34);
-		contentPane.add(txtName);
-		txtName.setColumns(10);
+		textfieldTenHocPhan = new JTextField();
+		textfieldTenHocPhan.setFont(new Font("Arial", Font.PLAIN, 16));
+		textfieldTenHocPhan.setBounds(129, 81, 277, 34);
+		contentPane.add(textfieldTenHocPhan);
+		textfieldTenHocPhan.setColumns(10);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Bắt Buộc");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		chckbxNewCheckBox.setBounds(548, 74, 132, 46);
-		contentPane.add(chckbxNewCheckBox);
+		JCheckBox checkBatBuoc = new JCheckBox("Bắt Buộc");
+		checkBatBuoc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		checkBatBuoc.setBounds(548, 74, 132, 46);
+		contentPane.add(checkBatBuoc);
 		
-		JLabel lblSTc = new JLabel("");
-		lblSTc.setFont(new Font("Arial", Font.BOLD, 16));
-		lblSTc.setBounds(416, 80, 109, 34);
-		contentPane.add(lblSTc);
+		JLabel labelSoTC = new JLabel("SoTC");
+		labelSoTC.setFont(new Font("Arial", Font.BOLD, 16));
+		labelSoTC.setBounds(416, 80, 57, 34);
+		contentPane.add(labelSoTC);
 		
-		textField = new JTextField();
-		textField.setText("a");
-		textField.setFont(new Font("Arial", Font.PLAIN, 16));
-		textField.setColumns(10);
-		textField.setBounds(474, 81, 63, 34);
-		contentPane.add(textField);
+		textfieldSoTC = new JTextField();
+		textfieldSoTC.setFont(new Font("Arial", Font.PLAIN, 16));
+		textfieldSoTC.setColumns(10);
+		textfieldSoTC.setBounds(474, 81, 63, 34);
+		contentPane.add(textfieldSoTC);
 		
-		JButton Math = new JButton("Tính");
-		Math.addActionListener(new ActionListener() {
+		JButton tinhTong = new JButton("Tính");
+		tinhTong.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		Math.setFont(new Font("Arial", Font.PLAIN, 16));
-		Math.setBounds(633, 10, 109, 46);
-		contentPane.add(Math);
+		tinhTong.setFont(new Font("Arial", Font.PLAIN, 16));
+		tinhTong.setBounds(633, 10, 109, 46);
+		contentPane.add(tinhTong);
 		
-		JLabel lblTngTinHc = new JLabel("Tổng Tiền Học Phí");
-		lblTngTinHc.setFont(new Font("Arial", Font.BOLD, 16));
-		lblTngTinHc.setBounds(13, 469, 161, 46);
-		contentPane.add(lblTngTinHc);
+		JLabel labelTongHocPhi = new JLabel("Tổng Tiền Học Phí");
+		labelTongHocPhi.setFont(new Font("Arial", Font.BOLD, 16));
+		labelTongHocPhi.setBounds(13, 469, 161, 46);
+		contentPane.add(labelTongHocPhi);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.PLAIN, 16));
-		textField_1.setColumns(10);
-		textField_1.setBounds(169, 476, 142, 34);
-		contentPane.add(textField_1);
+		textfieldTongHocPhi = new JTextField();
+		textfieldTongHocPhi.setFont(new Font("Arial", Font.PLAIN, 16));
+		textfieldTongHocPhi.setColumns(10);
+		textfieldTongHocPhi.setBounds(169, 476, 142, 34);
+		contentPane.add(textfieldTongHocPhi);
 		
-		JLabel lblTngSTc = new JLabel("Tổng Số TC");
-		lblTngSTc.setFont(new Font("Arial", Font.BOLD, 16));
-		lblTngSTc.setBounds(321, 475, 109, 34);
-		contentPane.add(lblTngSTc);
+		JLabel labelTongSoTC = new JLabel("Tổng Số TC");
+		labelTongSoTC.setFont(new Font("Arial", Font.BOLD, 16));
+		labelTongSoTC.setBounds(321, 475, 109, 34);
+		contentPane.add(labelTongSoTC);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Arial", Font.PLAIN, 16));
-		textField_2.setColumns(10);
-		textField_2.setBounds(416, 476, 63, 34);
-		contentPane.add(textField_2);
+		textfieldTongSoTC = new JTextField();
+		textfieldTongSoTC.setFont(new Font("Arial", Font.PLAIN, 16));
+		textfieldTongSoTC.setColumns(10);
+		textfieldTongSoTC.setBounds(416, 476, 63, 34);
+		contentPane.add(textfieldTongSoTC);
 		
-		JLabel lblNewLabel_1 = new JLabel("Ghi Chú: Tiền Học Phí = Số Tín Chỉ * TienHọc (Nếu là bắt buộc TienHoc = 450 , không bắt buộc TienHoc = 280)");
-		lblNewLabel_1.setBounds(10, 413, 515, 46);
-		contentPane.add(lblNewLabel_1);
+		JLabel labelGhiChu = new JLabel("Ghi Chú: Tiền Học Phí = Số Tín Chỉ * TienHọc (Nếu là bắt buộc TienHoc = 450 , không bắt buộc TienHoc = 280)");
+		labelGhiChu.setBounds(10, 413, 515, 46);
+		contentPane.add(labelGhiChu);
 	}
 }
