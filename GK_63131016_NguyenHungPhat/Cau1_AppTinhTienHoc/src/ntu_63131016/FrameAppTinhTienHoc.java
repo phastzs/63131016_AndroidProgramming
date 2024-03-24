@@ -29,7 +29,7 @@ public class FrameAppTinhTienHoc extends JFrame {
 	private JTextField textfieldTongSoTC;
 	public FrameAppTinhTienHoc() {
 	    // biến theo dõi vị trí dòng mơi
-		setTitle("Tính Tiền Học Phí");
+		setTitle("Tính Tiền Học Phí");	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 860, 743);
 		contentPane = new JPanel();
@@ -137,4 +137,38 @@ public class FrameAppTinhTienHoc extends JFrame {
 		labelGhiChu.setBounds(10, 618, 604, 46);
 		contentPane.add(labelGhiChu);
 	}
+	
+	// method tinh tong so tc
+	private int tinhTongSoTC() {
+	    int tongSoTC = 0;
+
+	    // lap qua cac hoc phan de tinh so tin chi
+	    for (int i = 1; i < soThuTuHocPhan; i++) {
+	        JTextField textFieldSoTC = (JTextField) contentPane.getComponentAt(179, 120 + 50 * (i - 1));
+	        int soTC = Integer.parseInt(textFieldSoTC.getText());
+	        tongSoTC += soTC;
+	    }
+
+	    return tongSoTC;
+	}
+	//method tinh tong so tien hoc phi
+	private int tinhTongTienHocPhi() {
+		int tongTienHocPhi = 0;
+
+		// lap qua cac hoc phan de kiem tra checkbox , so tin chi de tinh hoc phi
+		for (int i = 1; i < soThuTuHocPhan; i++) {
+			JTextField textFieldSoTC = (JTextField) contentPane.getComponentAt(179, 120 + 50 * (i - 1));
+			JTextField textFieldTienHoc = (JTextField) contentPane.getComponentAt(427, 120 + 50 * (i - 1));
+			JCheckBox checkBatBuoc = (JCheckBox) contentPane.getComponentAt(248, 120 + 50 * (i - 1));
+
+			int soTC = Integer.parseInt(textFieldSoTC.getText());
+			int tienHoc = checkBatBuoc.isSelected() ? 450 : 280; // Nếu checkbox được chọn, TienHoc = 450, ngược lại TienHoc = 280
+
+			tongTienHocPhi += soTC * tienHoc;
+			}
+
+			return tongTienHocPhi;
+
+	}
 }
+
