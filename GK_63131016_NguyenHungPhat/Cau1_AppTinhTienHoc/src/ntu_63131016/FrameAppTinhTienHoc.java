@@ -12,6 +12,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
+import java.awt.Component;
+
 
 
 public class FrameAppTinhTienHoc extends JFrame {
@@ -79,7 +81,7 @@ public class FrameAppTinhTienHoc extends JFrame {
 	                    contentPane.revalidate();
 	                    contentPane.repaint();
 	                } else {
-	                    // Đã đạt đến số lượng học phần tối đa
+	                    // max
 	                    System.out.println("Đã đạt đến số lượng học phần tối đa.");
 	                }
 	            }
@@ -105,6 +107,13 @@ public class FrameAppTinhTienHoc extends JFrame {
 		JButton tinhTong = new JButton("Tính");
 		tinhTong.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int tongSoTC = tinhTongSoTC();
+	            int tongTienHocPhi = tinhTongTienHocPhi();
+
+	            // cap nhat 2 gia tri duoc tra ve tu 2 method de gan cho 2 o
+	            textfieldTongSoTC.setText(Integer.toString(tongSoTC));
+	            textfieldTongHocPhi.setText(Integer.toString(tongTienHocPhi));
+	        
 			}
 		});
 		tinhTong.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -142,33 +151,37 @@ public class FrameAppTinhTienHoc extends JFrame {
 	private int tinhTongSoTC() {
 	    int tongSoTC = 0;
 
-	    // lap qua cac hoc phan de tinh so tin chi
-	    for (int i = 1; i < soThuTuHocPhan; i++) {
-	        JTextField textFieldSoTC = (JTextField) contentPane.getComponentAt(179, 120 + 50 * (i - 1));
-	        int soTC = Integer.parseInt(textFieldSoTC.getText());
-	        tongSoTC += soTC;
+	    // Lặp qua các thành phần của contentPane để tìm các textField chứa số tín chỉ
+	    for (Component component : contentPane.getComponents()) {
+	        if (component instanceof JTextField) {
+	            String text = ((JTextField) component).getText();
+	            if (!text.isEmpty()) {
+	                int soTC = Integer.parseInt(text);
+	                tongSoTC += soTC;
+	            }
+	        }
 	    }
 
 	    return tongSoTC;
 	}
-	//method tinh tong so tien hoc phi
+
+	// Phương thức tính tổng số tiền học phí
 	private int tinhTongTienHocPhi() {
-		int tongTienHocPhi = 0;
+	    int tongTienHocPhi = 0;
 
-		// lap qua cac hoc phan de kiem tra checkbox , so tin chi de tinh hoc phi
-		for (int i = 1; i < soThuTuHocPhan; i++) {
-			JTextField textFieldSoTC = (JTextField) contentPane.getComponentAt(179, 120 + 50 * (i - 1));
-			JTextField textFieldTienHoc = (JTextField) contentPane.getComponentAt(427, 120 + 50 * (i - 1));
-			JCheckBox checkBatBuoc = (JCheckBox) contentPane.getComponentAt(248, 120 + 50 * (i - 1));
-
-			int soTC = Integer.parseInt(textFieldSoTC.getText());
-			int tienHoc = checkBatBuoc.isSelected() ? 450 : 280; // Nếu checkbox được chọn, TienHoc = 450, ngược lại TienHoc = 280
-
-			tongTienHocPhi += soTC * tienHoc;
-			}
-
-			return tongTienHocPhi;
-
+	    // Lặp qua các thành phần của contentPane để tìm các textField và checkBox
+	    for (Component component : contentPane.getComponents()) {
+	        if (component instanceof JTextField) {
+	            String text = ((JTextField) component).getText();
+	            if (!text.isEmpty()) {
+	                int soTC = Integer.parseInt(text);
+	                JCheckBox checkBox = (JCheckBox) component.getParent().getComponent(2); // CheckBox là thành phần thứ 3 trong JPanel
+	                int tienHoc = checkBox.isSelected() ? 450 : 280;
+	                tongTienHocPhi += soTC * tienHoc;
+	            }
+	        }
+	    }
+	    return tongTienHocPhi;
 	}
 }
 
