@@ -19,76 +19,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"/>
 
-
-    <LinearLayout
-        android:id="@+id/taskContainer"
+    <!-- ListView -->
+    <ListView
+        android:id="@+id/todoListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_below="@id/headerTextView"
-        android:layout_marginTop="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Task 1"
-                android:textColor="@color/white"
-                android:textSize="18sp"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/options_array"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Task 2"
-                android:textColor="@color/white"
-                android:textSize="18sp"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/options_array"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Task 3"
-                android:textColor="@color/white"
-                android:textSize="18sp"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/options_array"/>
-        </LinearLayout>
-
-    </LinearLayout>
+        android:layout_above="@id/addProjectButton"/>
 
     <!-- Nút Add New -->
     <Button
@@ -96,6 +33,7 @@
         android:layout_width="124dp"
         android:layout_height="64dp"
         android:layout_alignParentEnd="true"
+
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -109,3 +47,4 @@
         android:textColor="@color/white" />
 
 </RelativeLayout>
+
