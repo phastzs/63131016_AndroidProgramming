@@ -75,4 +75,28 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
+    // Phuong thuc hien thi hop thoai de xoa ghi chu
+    private void showDeleteNoteDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Xoa Ghi Chu");
+
+        builder.setMessage("Ban co chac chan muon xoa ghi chu nay?");
+
+        builder.setPositiveButton("Co", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                notesList.remove(position);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        builder.setNegativeButton("Khong", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        builder.show();
+    }
 }
