@@ -99,4 +99,36 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
+    // Phuong thuc hien thi hop thoai de sua ghi chu
+    private void showEditNoteDialog(final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sua Ghi Chu");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setText(notesList.get(position));
+        builder.setView(input);
+
+        builder.setPositiveButton("Luu", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String editedNoteText = input.getText().toString();
+                if (!editedNoteText.isEmpty()) {
+                    notesList.set(position, editedNoteText);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(MainActivity.this, "Ghi chu khong duoc de trong!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        builder.setNegativeButton("Huy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        builder.show();
+    }
 }
