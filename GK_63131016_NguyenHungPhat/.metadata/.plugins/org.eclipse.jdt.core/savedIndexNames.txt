@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\phata\Desktop\GK_63131016_NguyenHungPhat\.metadata\.plugins\org.eclipse.jdt.core
-861411219.index
-1865797976.index
-4031681373.index
